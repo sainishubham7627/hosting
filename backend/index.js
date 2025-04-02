@@ -33,6 +33,11 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/auth", require("./routes/verifyEmail"));
 
+
+app.get('/ping',(req, res) => {
+    res.send('PONG') ;
+})
+
 // Reminder Feature: Runs Every Minute
 cron.schedule("* * * * *", async () => {
     console.log("⏳ Running Reminder Job...");
