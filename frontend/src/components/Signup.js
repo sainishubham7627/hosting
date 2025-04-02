@@ -23,7 +23,7 @@ const Signup = (props) => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/auth/createuser", { // Update port to 5000
+            const response = await fetch("https://hosting-ra5z.vercel.app/api/auth/createuser", { // Update port to 5000
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, password }),
