@@ -50,7 +50,7 @@
             await user.save();
 
             // 📩 Send verification email
-            const verifyLink = `${CLIENT_URL}/api/auth/verify-email/${verificationToken}`; // Generate the verification link
+            const verifyLink = `https://hosting-ra5z.vercel.app/api/auth/verify-email/${verificationToken}`; // Generate the verification link
 
             const message = `   
                 <h1>Email Verification</h1>
