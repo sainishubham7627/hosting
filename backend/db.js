@@ -3,9 +3,9 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });  // Upda
 
 const mongoose = require("mongoose");
 
-// ✅ Debugging: Check if MONGO_URI is loaded
+// Debugging: Check if MONGO_URI is loaded
 if (!process.env.MONGO_URI) {
-    console.error("❌ Error: MONGO_URI is NOT loaded. Check your .env file!");
+    console.error(" Error: MONGO_URI is NOT loaded. Check your .env file!");
     process.exit(1); // Exit if MONGO_URI is missing
 } else {
     if (process.env.NODE_ENV !== 'production') {
@@ -19,13 +19,13 @@ const connectToMongo = async (retries = 5, delay = 5000) => {
             useNewUrlParser: true,  // Optional in Mongoose 6+
             useUnifiedTopology: true, // Optional in Mongoose 6+
         });
-        console.log("✅ Successfully connected to MongoDB Atlas");
+        console.log(" Successfully connected to MongoDB Atlas");
     } catch (error) {
         if (retries === 0) {
-            console.error("❌ MongoDB connection failed after multiple attempts:", error.message);
+            console.error(" MongoDB connection failed after multiple attempts:", error.message);
             process.exit(1); // Stop execution after retries are exhausted
         } else {
-            console.log(`⚠️ MongoDB connection failed, retrying in ${delay / 1000} seconds...`);
+            console.log(` MongoDB connection failed, retrying in ${delay / 1000} seconds...`);
             setTimeout(() => connectToMongo(retries - 1, delay), delay); // Retry after a delay
         }
     }
